@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figuras</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+    <!-- Estilos del modal -->
+    <link href='https://dl.dropboxusercontent.com/s/az701f2f3qyk3c1/modal-css-popup.css' rel='stylesheet'/>
+
+</head>
+<body>
+    <header>
+        <h1>Figuras</h1>
+    </header>
+    <main>
+
+        <!-- MENU -->
+
+        <section class="menu">
+            <div class="menu_container">
+
+                <svg class="figura"  viewBox="0 0 92 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="menu_element" id="triangulo" d="M1.85011 74.5L46 0.971295L90.1499 74.5H1.85011Z" fill="#FAFF02" stroke="black"/>
+                </svg>
+
+                <svg class="figura"   viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="menu_element" id="circulo" cx="39.5" cy="39.5" r="39" fill="#27D323" stroke="black"/>
+                </svg>
+
+                <svg class="figura"   viewBox="0 0 116 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect class="menu_element" id="regtangulo" x="0.5" y="0.5" width="115" height="55" fill="#FF7171" stroke="black"/>
+                </svg>
+                
+                <svg class="figura"  viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect class="menu_element" id="cuadrado" x="0.5" y="0.5" width="70" height="70" fill="#60D5EF" stroke="black"/>
+                </svg>
+                    
+
+            </div>
+        </section>
+
+        <!-- MAIN -->
+        <section class="main">
+            
+            <!-- La parte donde se encuentran las figuras y sus respectivas partes -->
+            
+            <div class="div_figuras visible contenedor_trinagulo">
+                
+                <div>
+                    <p class="partes" id="altura_trian">Altura:</p>
+                   
+                    <svg class="main_figura" viewBox="0 0 92 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path id="Polygon 1" d="M1.85011 74.5L46 0.971295L90.1499 74.5H1.85011Z" fill="#FAFF02" stroke="black"/>
+                    </svg>
+                    
+                    <p class="partes" id="base_trian">Base:</p>
+                </div>
+                
+                <p class="partes" id="lado_trian">Lado:</p>
+
+
+            </div>
+
+            <div class="div_figuras contenedor_circulo">
+                
+                <div>
+                    <p class="partes" id="radio_cir">Radio:</p>
+                   
+                    <svg class="main_figura" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle id="Ellipse 1" cx="39.5" cy="39.5" r="39" fill="#27D323" stroke="black"/>
+                    </svg>
+                        
+                </div>
+                
+            </div>
+
+            <div class="div_figuras contenedor_cuadrado">
+                
+                <div>
+                    <p class="partes" id="lado_cuad">Lado:</p>
+                   
+                    <svg class="main_figura" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="70" height="70" fill="#60D5EF" stroke="black"/>
+                    </svg>
+         
+                </div>
+                
+            </div>
+
+            <div class="div_figuras contenedor_regtangulo">
+                
+                <div>
+                    <p class="partes" id="ancho_reg">Ancho:</p>
+                   
+                    <svg class="main_figura regtangulo" viewBox="0 0 116 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="115" height="55" fill="#FF7171" stroke="black"/>
+                    </svg>
+         
+                </div>
+                <p class="partes" id="alto_reg">Alto:</p>
+                
+            </div>
+
+            <!-- Teclado digital para que el usuario no se vea en la necesidad de escribir -->
+
+            <div class="taclado">
+
+                <!-- Aquí se vera el dato a ingresar junto con la parte a la que se le asigna -->
+                <div class="datos">
+                    <h2 class="data" id="ingresar">Altura:</h2>
+                    <h2 id="dato" class="data"></h2>
+                </div>
+                
+                <div class="botones">
+
+                    <button class="numero boton">1</button>
+                    <button class="numero boton">2</button>
+                    <button class="numero boton">3</button>
+                   
+                    <button class="numero boton">4</button>
+                    <button class="numero boton">5</button>
+                    <button class="numero boton">6</button>
+                   
+                    <button class="numero boton">7</button>
+                    <button class="numero boton">8</button>
+                    <button class="numero boton">9</button>
+
+                    <button id="borrar" class="boton"><-</button>
+                    <button class="numero boton">.</button>
+                    <button class="numero boton">0</button>
+                    <button class="enviar boton">-></button>
+
+                </div>
+
+            </div>
+            
+        </section>
+        
+        <!-- Contiene el botón de resolución -->
+
+        <section class="final"> 
+
+            <button id="resolver">Resolver</button>
+
+        </section>
+
+        <!-- El código del modal fue obtenido en https://www.seoblogariel.online/2022/10/agregar-modal-popup-html-css-js.html#:~:text=En%20esta%20entrada%20quiero%20mostrarles%20como%20colocar%20la,flotante%20que%20muestra%20m%C3%A1s%20detalles%20de%20la%20descripci%C3%B3n. -->
+        <!-- Modal donde se muestra el resultado de las operaciones -->
+        <div id="ejemplo1" class="modal">
+
+            <!--Respectivo contenido del modal--> 
+            <div class="modal-content" id="popup">
+
+                <div class="modal-header" id = "modal">
+                    <span onclick="document.getElementById('ejemplo1').style.display='none'" class="close" id="close-modal">&times;</span>
+                </div>
+                
+                <div class="modal-body"> 
+                    <p id="resul"></p>
+                    <!-- Imagen creada con https://leonardo.ai/ -->
+                    <img class="personaje" src="./img/DreamShaper_v7_Create_a_cheerful_character_based_on_the_shape_1-removebg-preview (1).png" alt="cuadrado feliz">
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Script para la animación de confeti -->
+    <!-- Código de https://youtu.be/quSR_ZrVz6Y?si=itFrSiVuIA9KeX2O -->
+    <!-- Se invoca antes de nuestro script para que se cargue en el mismo -->
+    <script src="./confetti.js"></script>
+    
+    <!-- Script propio contiene toda la lógica del programa -->
+    <script src="./main.js"></script>
+    
+    <!-- Script del modal-->
+    <script src="https://dl.dropboxusercontent.com/s/oyza303bqgpoivh/modal-js.js"></script>
+</body>
+</html>
