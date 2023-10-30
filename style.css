@@ -46,6 +46,7 @@ header h1 {
   margin: 10px 5px;
   width: 400px;
   height: 400px;
+  cursor: pointer;
 }
 
 .regtangulo {
