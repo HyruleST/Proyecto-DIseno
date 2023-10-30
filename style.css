@@ -99,6 +99,7 @@ header h1 {
   font-weight: bold;
   border: none;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .final {
@@ -170,6 +171,10 @@ header h1 {
     gap: 30px;
   }
 
+  .regtangulo{
+    height: 100px;
+  }
+  
   header h1{
     font-size: 1.6em;
   }
