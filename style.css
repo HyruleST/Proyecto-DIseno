@@ -215,7 +215,7 @@ header h1 {
     }
 }
 
-@media screen and (max-height: 650px) {
+@media screen and (max-height: 800px) {
     
     .menu_container{
         width: 100vw;
