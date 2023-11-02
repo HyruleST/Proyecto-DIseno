@@ -8,7 +8,11 @@ const datoIngresar = document.querySelector('#ingresar');
 const solveButton = document.querySelector('#resolver');
 const resul = document.querySelector('#resul');
 const modal = document.getElementById('ejemplo1');
+const modal2 = document.getElementById('ejemplo2');
 const partes = document.querySelectorAll('.partes');
+const modaBox = document.querySelector('#popup');
+const alerta = document.querySelector('#alert');
+
 
 //Variables de función
 let dato = "";
@@ -45,10 +49,11 @@ const menuOption = document.querySelectorAll('.menu_element');
 
 //contenedores 
 const cuadraContenedor = document.querySelector('.contenedor_cuadrado');
-const triangContenedor = document.querySelector('.contenedor_trinagulo');
+const triangContenedor = document.querySelector('.contenedor_triangulo');
 const circuContendor = document.querySelector('.contenedor_circulo');
 const regContenedor = document.querySelector('.contenedor_regtangulo');
 
+const figurasMain = document.querySelectorAll('.main_figura');
 
 
 //Se encarga de la funcionalidad del teclado
@@ -56,7 +61,8 @@ numeros.forEach(numero => {
     numero.addEventListener('click',()=>{
         
         if (info.innerHTML.length >= 6){
-            alert("El numero es demasiado grande :(")
+            alerta.innerHTML = "El numero es demasiado largo :(";
+            modal2.style.display = 'block';
         }else{
             info.innerHTML += numero.innerHTML;
         }
@@ -64,14 +70,28 @@ numeros.forEach(numero => {
     });
 });
 
+//Analizar 
+// figurasMain.forEach(element=>{
+//     element.addEventListener('click',()=>{
+//         element.classList.add('figura_animation');
+
+//         setTimeout(()=>{
+//             element.classList.remove('figura_animation');
+//         },1500);
+
+//     });
+// });
+
+
 //Se encarga de borrar los dígitos
 borrarButton.addEventListener('click',()=>{
    let data = info.innerHTML;
    
    if (data.length <= 0){
 
-       alert("El numero es muy corto :(")
-   
+       alerta.innerHTML = "El numero es muy corto";
+       modal2.style.display = 'block';
+
     } else{
 
        data = data.slice(0,-1);
@@ -85,16 +105,20 @@ borrarButton.addEventListener('click',()=>{
 enviarButton.addEventListener('click',()=>{
     //Validaciones
     if (info.innerHTML.length <= 0){
-        alert("El campo esta vació :(");
+        alerta.innerHTML = "El campo esta vació";
+        modal2.style.display = 'block';
     }else if (figura == "triangulo"){
 
         if (contador > 3 && !validar()){
             
-            alert("Aun hay campos vacíos :(, haga click en los campos vacíos para llenarlos")
-        
+            alerta.innerHTML = "Aun hay campos vacíos :(, haga click en los campos vacíos para llenarlos";
+            modal2.style.display = 'block';
+
+
         }else if (contador > 3){
             
-            alert("Todos los campos a sido llenado :(");
+            alerta.innerHTML = "Todos los campos han sido llenados :(";
+            modal2.style.display = 'block';
         
         }else{
             //Funcionalidad
@@ -128,7 +152,8 @@ enviarButton.addEventListener('click',()=>{
         }
     }else if(figura == "circulo"){
         if (contador > 1){
-            alert("Todos los campos han sido llenado :(");
+            alerta.innerHTML = "Todos los campos han sido llenados :(";
+            modal2.style.display = 'block';
         }else{
             if (contador == 1){
                 let radioArray = radioCir.innerHTML.split(":");
@@ -142,7 +167,8 @@ enviarButton.addEventListener('click',()=>{
         
         if (contador > 1){
         
-            alert("Todos los campos han sido llenado :(");
+            alerta.innerHTML = "Todos los campos han sido llenados :(";
+            modal2.style.display = 'block';
         
         }else{
         
@@ -159,10 +185,14 @@ enviarButton.addEventListener('click',()=>{
 
         if (contador > 2 && !validar()){
             
-            alert("Aun hay campos vacíos, haga click en los campos vacíos para llenarlos")
-        
+            alerta.innerHTML = "Aun hay campos vacíos, haga click en los campos vacíos para llenarlos";
+            modal2.style.display = 'block';
+
+
         }else if(contador > 2){
-            alert("Todos los campos han sido llenados :(")
+            alerta.innerHTML = "Todos los campos han sido llenados :(";
+            modal2.style.display = 'block';
+        
         }else{
             if(contador == 1){
                 let anchoArray = anchoReg.innerHTML.split(':');
@@ -281,8 +311,10 @@ const stop = () => {
 }
 
 // Resuelve las operaciones solicitadas y las envía el modal
-solveButton.addEventListener('click',()=>{
+solveButton.addEventListener('click',async ()=>{
     
+
+
     if (validar()){
         let peri;
         let are;    
@@ -300,16 +332,34 @@ solveButton.addEventListener('click',()=>{
             peri = perimetroReg();
         }
 
-        resul.innerHTML = `El perímetro del ${figura} es de: ${peri} y el area es: ${are}`;
+        resul.innerHTML = `El perímetro del ${figura} es de: ${peri} y el area es de: ${are}`;
         risas.play();
         confetti.start()
         stop();
         modal.style.display='block';
 
     }else{
+        // alert("Algunos campos están vacíos");
+        alerta.innerHTML = "Algunos campos están vacíos";
+        modal2.style.display = 'block';
+            
         
-        alert("Algunos campos están vacíos");
-    
+
+        partes.forEach(element =>{
+            const vacios = element.innerHTML.split(':')[1];
+            if(vacios == ""){
+                element.classList.add('vacio');
+            }
+        });
+
+        setTimeout(()=>{
+            partes.forEach(element =>{
+                element.classList.remove('vacio');
+                
+            });
+        },2000);
+
+
     }
 });
 
@@ -328,6 +378,12 @@ menuOption.forEach(element =>{
             elemento.innerHTML = `${elemento.innerHTML.split(':')[0]}:`;
         });
         
+        document.querySelector(`body > main > section.main > div.div_figuras.contenedor_${e.target.id} > div > svg`).classList.add('figura_animation');
+
+        setTimeout(()=>{
+            document.querySelector(`body > main > section.main > div.div_figuras.contenedor_${e.target.id} > div > svg`).classList.remove('figura_animation');
+        },1500);
+
         if(e.target.id == "triangulo"){
             triangContenedor.classList.add('visible');
             datoIngresar.innerHTML = "Altura:";
@@ -341,6 +397,16 @@ menuOption.forEach(element =>{
             regContenedor.classList.add('visible');
             datoIngresar.innerHTML = "Ancho:";
         }
+
+        
+
     });
 });
+
+// figurasMain.forEach(element =>{
+//     element.addEventListener('click',(e)=>{
+//         new Audio(`./audios/${e.target.figura}.mp3`).play();
+//     });
+// });
+
 
