@@ -26,7 +26,7 @@ header {
 header h1 {
   /* font-family: 'Playpen Sans', sans-serif; */
   padding: 7px;
-  font-size: 2em;
+  font-size: 1.8em;
 }
 
 .figura {
@@ -49,6 +49,11 @@ header h1 {
   cursor: pointer;
 }
 
+.figura_animation{
+  animation-name: figuraMain;
+  animation-duration: .8s;
+}
+
 .regtangulo {
   height: 200px;
 }
@@ -60,19 +65,25 @@ header h1 {
   padding: 0 15%;
 }
 
-.partes {
+.partes{ 
   font-size: 2em;
   font-weight: bold;
+}
+
+.vacio{
+  animation-name: shake;
+  animation-duration: 1s;
 }
 
 .boton {
   height: 70px;
   border-radius: 10px;
-  border: 1px solid #000;
-  background-color: transparent;
+  border: 3px solid #000;
+  background-color: #da9b54;
   font-family: "Playpen Sans", sans-serif;
   font-size: 1.7em;
   cursor: pointer;
+  color: #fff;
 }
 
 .boton:hover {
@@ -132,7 +143,13 @@ header h1 {
   background-color: #f0efef;
 }
 
-#resul {
+#popup2{
+  width: 275px;
+  height: 325px;
+}
+
+
+#resul,#alert {
   font-size: 1.7em;
   text-align: center;
   font-weight: bold;
@@ -172,10 +189,6 @@ header h1 {
     gap: 30px;
   }
 
-  .regtangulo{
-    height: 100px;
-  }
-  
   header h1{
     font-size: 1.6em;
   }
@@ -204,6 +217,9 @@ header h1 {
         height: 200px;
     }
 
+    .regtangulo{
+        height: 100px;
+    }
     #resolver{
         width: 300px;
     }
@@ -231,8 +247,12 @@ header h1 {
         width: 70px;
     }
     .main_figura{
-        width: 200px;
-        height: 200px;
+        width: 250px;
+        height: 250px;
+    }
+
+    .regtangulo{
+      height: 150px;
     }
 
     .partes{
@@ -240,15 +260,42 @@ header h1 {
     }
 
     .boton{
-        height: 40px;
+        height: 50px;
         font-size: 1em;
     }
 
     .botones{
-        grid-template-columns: 40px 40px 40px;
+        grid-template-columns: 50px 50px 50px;
     }
     .data{
-        font-size: 1.2em;
+        font-size: 1.5em;
+    }
+    .main{
+      padding: 0 15%;
     }
 
+}
+
+@keyframes shake {
+  0%{
+    transform: rotate(0deg);
+  }
+  25%{
+    transform: rotate(5deg);
+  }
+  75%{
+    transform: rotate(-5deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes figuraMain{
+  0%{
+    scale: 0;
+  }
+  100%{
+    scale: 1;
+  }
 }
