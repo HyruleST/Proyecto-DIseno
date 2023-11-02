@@ -57,7 +57,7 @@
             
             <!-- La parte donde se encuentran las figuras y sus respectivas partes -->
             
-            <div class="div_figuras visible contenedor_trinagulo">
+            <div class="div_figuras visible contenedor_triangulo">
                 
                 <div>
                     <p class="partes" id="altura_trian">Altura:</p>
@@ -79,7 +79,7 @@
                 <div>
                     <p class="partes" id="radio_cir">Radio:</p>
                    
-                    <svg class="main_figura" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="main_figura" figura = "circulo" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle id="Ellipse 1" cx="39.5" cy="39.5" r="39" fill="#27D323" stroke="black"/>
                     </svg>
                         
@@ -92,7 +92,7 @@
                 <div>
                     <p class="partes" id="lado_cuad">Lado:</p>
                    
-                    <svg class="main_figura" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="main_figura" figura = "cuadrado" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="0.5" y="0.5" width="70" height="70" fill="#60D5EF" stroke="black"/>
                     </svg>
          
@@ -105,7 +105,7 @@
                 <div>
                     <p class="partes" id="ancho_reg">Ancho:</p>
                    
-                    <svg class="main_figura regtangulo" viewBox="0 0 116 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="main_figura regtangulo" figura = "regtangulo" viewBox="0 0 116 56" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="0.5" y="0.5" width="115" height="55" fill="#FF7171" stroke="black"/>
                     </svg>
          
@@ -172,6 +172,25 @@
                     <p id="resul"></p>
                     <!-- Imagen creada con https://leonardo.ai/ -->
                     <img class="personaje" src="./img/DreamShaper_v7_Create_a_cheerful_character_based_on_the_shape_1-removebg-preview (1).png" alt="cuadrado feliz">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div id="ejemplo2" class="modal">
+
+            <!--Respectivo contenido del modal--> 
+            <div class="modal-content" id="popup2">
+
+                <div class="modal-header" id = "modal">
+                    <span onclick="document.getElementById('ejemplo2').style.display='none'" class="close" id="close-modal">&times;</span>
+                </div>
+                
+                <div class="modal-body"> 
+                    <p id="alert"></p>
+                    <!-- Imagen creada con https://leonardo.ai/ -->
                 </div>
 
             </div>
